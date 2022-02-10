@@ -7,6 +7,6 @@ export class EventDal {
   }
 
   static async getAll(): Promise<EventOutput[]> {
-    return Event.findAll();
+    return await Event.findAll();
   }
 }

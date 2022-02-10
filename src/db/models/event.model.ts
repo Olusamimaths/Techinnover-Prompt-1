@@ -9,6 +9,7 @@ interface EventAttributes {
 }
 
 export type EventInput = Optional<EventAttributes, 'id' | 'date'>;
+export type EventDTO = Optional<EventAttributes, 'id'>;
 export type EventOutput = Required<EventAttributes>;
 
 export class Event
@@ -41,5 +42,10 @@ Event.init(
       allowNull: false
     }
   },
-  { sequelize: sequelizeConnection }
+  {
+    sequelize: sequelizeConnection,
+    updatedAt: false,
+    createdAt: false,
+    timestamps: false
+  }
 );
