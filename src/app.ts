@@ -1,10 +1,12 @@
 import express, { Express } from 'express';
 import dotenv from 'dotenv';
-import cors from 'cors';
-
 dotenv.config();
+import cors from 'cors';
 import { errorCreator, errorHandler } from './helpers/error-handler';
 import routes from './api/routes';
+import dbInit from './db/init';
+
+dbInit();
 
 const app: Express = express();
 
